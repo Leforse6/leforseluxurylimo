@@ -1754,6 +1754,49 @@ footer {
   .page-hero { padding: 120px 24px 56px; }
   .page-body { padding: 56px 24px 72px; }
 }
+/* ============================================================
+   FILM — Teterboro ad
+   ============================================================ */
+#film {
+  background: var(--primary);
+  padding: 96px 56px;
+  text-align: center;
+}
+.film-kicker {
+  display: block;
+  color: var(--secondary);
+  margin-bottom: 16px;
+}
+#film .section-headline {
+  color: var(--bg);
+  margin-bottom: 40px;
+}
+.film-frame {
+  max-width: 1100px;
+  margin: 0 auto;
+  aspect-ratio: 16 / 9;
+  background: #000;
+  border: 1px solid rgba(201,166,83,0.35);
+  box-shadow: 0 30px 80px rgba(0,0,0,0.35);
+}
+.film-frame video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.film-note {
+  font-family: var(--font-body);
+  font-size: var(--fs-lead);
+  color: rgba(240,230,210,0.75);
+  max-width: 640px;
+  margin: 28px auto 0;
+}
+@media (max-width: 768px) {
+  #film { padding: 64px 0; }
+  #film .section-headline, .film-kicker, .film-note { padding: 0 20px; }
+  .film-frame { border-left: 0; border-right: 0; }
+}
 </style>
 
 <!-- Google tag (gtag.js) -->
@@ -1861,6 +1904,27 @@ footer {
     </div>
   </div>
 </section>
+
+<!-- FILM — Teterboro ad -->
+<section id="film" aria-labelledby="film-title">
+  <span class="label film-kicker">Private Aviation · Teterboro</span>
+  <h2 class="section-headline" id="film-title">From the Ramp to the Lobby.</h2>
+  <div class="film-frame">
+    <video id="film-video" src="/media/leforse-teterboro-film.mp4" poster="/media/leforse-teterboro-film-poster.jpg" muted loop playsinline controls preload="none" aria-label="Leforse Luxury Limo: Teterboro pickup in a black Suburban, ride into Manhattan, Midtown drop-off"></video>
+  </div>
+  <p class="film-note">Your car is on the ramp when the jet door opens. Free Wi-Fi, water and chargers on the way in. Call <a href="tel:8335336773" style="color:var(--secondary);white-space:nowrap;">833-LEFORSE</a> to book.</p>
+</section>
+<script>
+(function () {
+  var v = document.getElementById('film-video');
+  if (!v || !('IntersectionObserver' in window)) return;
+  new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) { v.play().catch(function () {}); } else { v.pause(); }
+    });
+  }, { threshold: 0.5 }).observe(v);
+})();
+</script>
 
 <!-- SECTION 3 — SERVICES -->
 <section id="services">
