@@ -1933,6 +1933,24 @@ footer {
 </section>
 <section class="page-body">
 
+<figure style="margin:0 0 8px;">
+  <div style="aspect-ratio:16/9;background:#000;border:1px solid rgba(201,166,83,0.45);box-shadow:0 20px 50px rgba(0,0,0,0.18);">
+    <video id="teb-film" src="/media/leforse-teterboro-film.mp4" poster="/media/leforse-teterboro-film-poster.jpg" muted loop playsinline controls preload="none" style="display:block;width:100%;height:100%;object-fit:cover;" aria-label="Leforse Luxury Limo at Teterboro: black Suburban on the ramp, ride into Manhattan, Midtown drop-off"></video>
+  </div>
+  <figcaption style="font-size:14px;font-style:italic;opacity:0.7;margin-top:10px;">From the ramp at Teterboro to the lobby in Midtown. Tap for sound.</figcaption>
+</figure>
+<script>
+(function () {
+  var v = document.getElementById('teb-film');
+  if (!v || !('IntersectionObserver' in window)) return;
+  new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) { v.play().catch(function () {}); } else { v.pause(); }
+    });
+  }, { threshold: 0.5 }).observe(v);
+})();
+</script>
+
 <h2>We Work With Your FBO</h2>
 <p>Teterboro runs on FBOs, not terminals. We pick up and drop off at all of them, including Atlantic Aviation, Signature Aviation, Jet Aviation and Meridian. We contact the FBO desk directly before your arrival to confirm where the car should wait, so you are not standing outside looking for your driver.</p>
 
